@@ -63,6 +63,17 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 - php artisan vendor:publish --provider="Encore\Admin\AdminServiceProvider"
 - php artisan admin:install
 
+- migration ERROR
+- 手动配置迁移命令migrate生成的默认字符串长度，在AppServiceProvider中调用Schema::defaultStringLength方法来实现配置
+```php
+    use Illuminate\Support\Facades\Schema;
+
+    public function boot()
+    {
+       Schema::defaultStringLength(191);
+    }
+```
+
 ## Add helper
 - sudo composer config -g secure-http false
 - sudo composer require laravel-admin-ext/helpers
